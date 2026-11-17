@@ -23,7 +23,7 @@ async function AdminShell({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="flex min-h-screen flex-col bg-canvas-soft">
-      <header className="sticky top-0 z-40 border-b border-border-soft bg-canvas/85 backdrop-blur-xl safe-top">
+      <header className="sticky top-0 z-40 border-b border-border-soft bg-canvas/85 backdrop-blur-md safe-top">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
           <div className="flex min-w-0 items-center gap-3">
             <Logo />
@@ -42,36 +42,47 @@ async function AdminShell({ children }: { children: React.ReactNode }) {
             </div>
             <span
               aria-hidden="true"
-              className="grid h-9 w-9 place-items-center rounded-full bg-surface-muted text-xs font-semibold text-ink-700"
+              className="grid h-9 w-9 place-items-center rounded-full bg-brand-50 text-xs font-semibold text-brand-700"
             >
               {initials}
             </span>
             <form action={logout}>
               <button
                 type="submit"
-                className="rounded-full px-3 py-1.5 text-xs font-medium text-ink-500 transition-colors hover:bg-surface-muted hover:text-ink-900"
+                className="rounded-lg px-2.5 py-1.5 text-xs font-medium text-ink-500 transition-colors hover:bg-surface-muted hover:text-ink-900"
               >
                 Log out
               </button>
             </form>
           </div>
         </div>
-        <div className="mx-auto max-w-7xl px-4 pb-3 sm:px-6">
-          <AdminNav />
-        </div>
       </header>
 
-      <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-8 sm:px-6 sm:py-10">
-        {mfa.enrolled && mfa.satisfied ? (
-          children
-        ) : (
-          <MfaGate
-            enrolled={mfa.enrolled}
-            factorId={mfa.factorId}
-            email={user.email}
-          />
-        )}
-      </main>
+      <div className="mx-auto flex w-full max-w-7xl flex-1 gap-8 px-4 py-6 sm:px-6 sm:py-8">
+        <aside className="hidden w-56 shrink-0 lg:block">
+          <div className="sticky top-24">
+            <p className="mb-2 px-3 text-[11px] font-semibold uppercase tracking-wide text-ink-400">
+              Console
+            </p>
+            <AdminNav variant="sidebar" />
+          </div>
+        </aside>
+
+        <main className="min-w-0 flex-1">
+          <div className="mb-6 lg:hidden">
+            <AdminNav />
+          </div>
+          {mfa.enrolled && mfa.satisfied ? (
+            children
+          ) : (
+            <MfaGate
+              enrolled={mfa.enrolled}
+              factorId={mfa.factorId}
+              email={user.email}
+            />
+          )}
+        </main>
+      </div>
     </div>
   );
 }

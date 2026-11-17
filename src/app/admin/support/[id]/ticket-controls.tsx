@@ -137,7 +137,7 @@ function StatusForm({
           name="status"
           defaultValue={status}
           disabled={pending}
-          className="h-11 rounded-xl border border-border bg-surface px-3 text-sm text-ink-900 focus-visible:border-mint-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mint-500"
+          className="h-11 rounded-lg border border-border bg-surface px-3 text-sm text-ink-900 focus-visible:border-brand-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/25"
         >
           {TICKET_STATUSES.map((value) => (
             <option key={value} value={value}>

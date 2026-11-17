@@ -50,7 +50,7 @@ const STEPS = [
 ];
 
 const SELECT_CLASS =
-  "flex h-11 w-full rounded-xl border border-border bg-surface px-4 text-sm text-ink-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mint-500 disabled:opacity-50";
+  "flex h-11 w-full rounded-lg border border-border bg-surface px-4 text-sm text-ink-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/25 disabled:opacity-50";
 
 const TYPE_META: Record<string, { icon: LucideIcon; desc: string }> = {
   video_clipping: {
@@ -478,14 +478,14 @@ export function CampaignWizard() {
                     className={cn(
                       "flex items-start gap-3 rounded-2xl border p-4 text-left transition-colors",
                       active
-                        ? "border-mint-500 bg-mint-50"
+                        ? "border-brand-500 bg-brand-50"
                         : "border-border bg-surface hover:bg-surface-muted"
                     )}
                   >
                     <span
                       className={cn(
                         "flex h-9 w-9 shrink-0 items-center justify-center rounded-xl",
-                        active ? "bg-mint-600 text-white" : "bg-surface-muted text-ink-600"
+                        active ? "bg-brand-600 text-white" : "bg-surface-muted text-ink-600"
                       )}
                     >
                       <Icon className="h-4 w-4" aria-hidden="true" />
@@ -494,7 +494,7 @@ export function CampaignWizard() {
                       <span className="flex items-center gap-2 font-medium text-ink-900">
                         {CAMPAIGN_TYPE_LABEL[id]}
                         {active ? (
-                          <Check className="h-3.5 w-3.5 text-mint-600" aria-hidden="true" />
+                          <Check className="h-3.5 w-3.5 text-brand-600" aria-hidden="true" />
                         ) : null}
                       </span>
                       <span className="mt-0.5 block text-xs text-ink-500">
@@ -589,7 +589,7 @@ export function CampaignWizard() {
                     className={cn(
                       "flex cursor-pointer items-center gap-3 rounded-2xl border p-4 transition-colors",
                       checked
-                        ? "border-mint-500 bg-mint-50"
+                        ? "border-brand-500 bg-brand-50"
                         : "border-border bg-surface hover:bg-surface-muted"
                     )}
                   >
@@ -599,7 +599,7 @@ export function CampaignWizard() {
                       value={p.id}
                       checked={checked}
                       onChange={() => togglePlatform(p.id)}
-                      className="h-4 w-4 rounded border-border text-mint-600 focus:ring-mint-500"
+                      className="h-4 w-4 rounded border-border text-brand-600 focus:ring-brand-500"
                     />
                     <span className="font-medium text-ink-900">{p.label}</span>
                   </label>
@@ -703,7 +703,7 @@ export function CampaignWizard() {
             </div>
 
             {budgetNum > 0 && rateNum > 0 ? (
-              <p className="rounded-xl border border-mint-200 bg-gradient-earn-soft p-4 text-xs leading-relaxed text-ink-600">
+              <p className="rounded-xl border border-brand-100 bg-brand-50 p-4 text-xs leading-relaxed text-ink-600">
                 At {formatRupees(rateNum)} per 1,000 verified views, a{" "}
                 {formatRupees(budgetNum)} budget funds roughly{" "}
                 <span className="font-semibold text-ink-900">
@@ -821,7 +821,7 @@ export function CampaignWizard() {
                 name="disclosureRequired"
                 checked={values.disclosureRequired}
                 onChange={(e) => set("disclosureRequired", e.target.checked)}
-                className="mt-0.5 h-4 w-4 rounded border-border text-mint-600 focus:ring-mint-500"
+                className="mt-0.5 h-4 w-4 rounded border-border text-brand-600 focus:ring-brand-500"
               />
               <span>
                 <span className="block font-medium text-ink-900">
@@ -1022,7 +1022,7 @@ export function CampaignWizard() {
                 name="publish"
                 checked={values.publish}
                 onChange={(e) => set("publish", e.target.checked)}
-                className="mt-0.5 h-4 w-4 rounded border-border text-mint-600 focus:ring-mint-500"
+                className="mt-0.5 h-4 w-4 rounded border-border text-brand-600 focus:ring-brand-500"
               />
               <span>
                 <span className="block font-medium text-ink-900">

@@ -28,7 +28,7 @@ export default function LoginPage() {
   }, [state]);
 
   return (
-    <div className="rounded-2xl border border-border-soft bg-surface p-8 shadow-sm">
+    <div className="rounded-2xl border border-border-soft bg-surface p-6 shadow-sm sm:p-8">
       <h1 className="text-2xl font-bold text-ink-900">Welcome back</h1>
       <p className="mt-1 text-sm text-ink-500">
         Log in to your ClipSetu account
@@ -61,7 +61,7 @@ export default function LoginPage() {
                 <Label htmlFor="password">Password</Label>
                 <Link
                   href="/forgot-password"
-                  className="text-xs text-mint-600 hover:underline"
+                  className="text-xs font-medium text-brand-600 hover:underline"
                 >
                   Forgot password?
                 </Link>
@@ -77,7 +77,8 @@ export default function LoginPage() {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-ink-400 hover:text-ink-600"
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 rounded-md p-1 text-ink-400 transition-colors hover:text-ink-700"
                 >
                   {showPassword ? (
                     <EyeOff className="h-4 w-4" />
@@ -104,7 +105,7 @@ export default function LoginPage() {
 
       <p className="mt-6 text-center text-sm text-ink-500">
         Don&apos;t have an account?{" "}
-        <Link href="/signup" className="font-medium text-mint-600 hover:underline">
+        <Link href="/signup" className="font-medium text-brand-600 hover:underline">
           Sign up
         </Link>
       </p>

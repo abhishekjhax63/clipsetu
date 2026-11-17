@@ -205,7 +205,7 @@ export function PayoutActions({
       ) : null}
 
       {panel === "complete" ? (
-        <div className="space-y-2 rounded-xl border border-mint-200 bg-gradient-earn-soft p-3">
+        <div className="space-y-2 rounded-xl border border-brand-100 bg-brand-50 p-3">
           <Label htmlFor={`payout-ref-${withdrawalId}`}>
             Provider payout reference
           </Label>

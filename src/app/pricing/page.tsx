@@ -58,30 +58,32 @@ const plans = [
 export default function PricingPage() {
   return (
     <PublicLayout>
-      <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pt-16 pb-12 text-center">
-      <Badge variant="success" className="mb-6">Pricing</Badge>
-      <h1 className="text-4xl font-bold tracking-tight text-ink-900 sm:text-5xl">
-        Simple, transparent pricing
-      </h1>
-      <p className="mx-auto mt-5 max-w-2xl text-lg text-ink-600">
-        Start free. Upgrade when you&apos;re ready. No hidden fees, ever.
-      </p>
-    </section>
+      <section className="mx-auto max-w-4xl px-4 pt-16 pb-12 text-center sm:px-6 lg:px-8">
+        <Badge variant="success" className="mb-6">Pricing</Badge>
+        <h1 className="text-4xl font-bold tracking-tight text-ink-900 sm:text-5xl">
+          Simple, transparent pricing
+        </h1>
+        <p className="mx-auto mt-5 max-w-2xl text-lg text-ink-600">
+          Start free. Upgrade when you&apos;re ready. No hidden fees, ever.
+        </p>
+      </section>
 
-    <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pb-20">
+      <section className="mx-auto max-w-6xl px-4 pb-20 sm:px-6 lg:px-8">
         <div className="grid gap-6 lg:grid-cols-3">
           {plans.map((plan) => (
             <Card
               key={plan.name}
-              className={`relative ${
+              className={`relative flex flex-col ${
                 plan.highlight
-                  ? "border-2 border-mint-500 shadow-lg scale-[1.02]"
+                  ? "border-brand-600 shadow-lg ring-1 ring-brand-600/15"
                   : ""
               }`}
             >
               {plan.highlight && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <Badge className="bg-mint-600 text-white">Most Popular</Badge>
+                  <Badge className="bg-brand-600 text-white">
+                    Most Popular
+                  </Badge>
                 </div>
               )}
               <CardHeader>
@@ -93,12 +95,12 @@ export default function PricingPage() {
                       {plan.price > 0 && (
                         <IndianRupee className="h-5 w-5 text-ink-900" />
                       )}
-                      <span className="text-4xl font-bold text-ink-900">
+                      <span className="font-display tnum text-4xl font-bold tracking-tight text-ink-900">
                         {plan.price === 0 ? "Free" : plan.price}
                       </span>
                     </>
                   ) : (
-                    <span className="text-4xl font-bold text-ink-900">
+                    <span className="font-display text-4xl font-bold tracking-tight text-ink-900">
                       {plan.price}
                     </span>
                   )}
@@ -107,27 +109,26 @@ export default function PricingPage() {
                   )}
                 </div>
               </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
+              <CardContent className="flex flex-1 flex-col">
+                <ul className="flex-1 space-y-3">
                   {plan.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2 text-sm">
-                      <Check className="h-4 w-4 text-mint-600 shrink-0 mt-0.5" />
+                    <li key={f} className="flex items-start gap-2.5 text-sm">
+                      <Check
+                        className="mt-0.5 h-4 w-4 shrink-0 text-brand-600"
+                        aria-hidden="true"
+                      />
                       <span className="text-ink-700">{f}</span>
                     </li>
                   ))}
                 </ul>
                 <Button
                   asChild
-                  className={`mt-6 w-full ${
-                    plan.highlight
-                      ? "bg-mint-600 text-white hover:bg-mint-700"
-                      : ""
-                  }`}
+                  className="mt-7 w-full"
                   variant={plan.highlight ? "default" : "outline"}
                 >
                   <Link href="/signup">
                     {plan.cta}
-                    <ArrowRight className="h-4 w-4" />
+                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </Link>
                 </Button>
               </CardContent>
@@ -135,11 +136,10 @@ export default function PricingPage() {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <p className="text-sm text-ink-500">
-            Platform fee: 10% on all creator earnings. No platform fee on brand deposits.
-          </p>
-        </div>
+        <p className="mt-12 text-center text-sm text-ink-500">
+          Platform fee: 10% on all creator earnings. No platform fee on brand
+          deposits.
+        </p>
       </section>
     </PublicLayout>
   );

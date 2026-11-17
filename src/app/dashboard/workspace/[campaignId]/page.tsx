@@ -359,15 +359,15 @@ async function Workspace({ params }: { params: Promise<{ campaignId: string }> }
             </p>
           </CardContent>
         </Card>
-        <Card className="border-mint-200 bg-gradient-earn-soft">
+        <Card className="border-brand-100 bg-brand-50">
           <CardContent className="p-5">
             <div className="flex items-center justify-between">
               <p className="text-sm font-medium text-ink-500">
                 Estimated rewards
               </p>
-              <Wallet className="h-4 w-4 text-mint-600" aria-hidden="true" />
+              <Wallet className="h-4 w-4 text-brand-600" aria-hidden="true" />
             </div>
-            <p className="mt-2 text-xl font-bold text-mint-700">
+            <p className="mt-2 text-xl font-bold text-brand-700">
               {formatINR(estimatedReward)}
             </p>
             <p className="mt-1 text-xs text-ink-500">
@@ -466,7 +466,7 @@ async function Workspace({ params }: { params: Promise<{ campaignId: string }> }
                             </span>
                           ) : null}
                           {reward ? (
-                            <span className="font-medium text-mint-700">
+                            <span className="font-medium text-brand-700">
                               ~{formatINR(reward.net)}
                             </span>
                           ) : null}
@@ -683,7 +683,7 @@ async function Workspace({ params }: { params: Promise<{ campaignId: string }> }
                   {notifications.map((note) => (
                     <li key={note.id} className="flex items-start gap-2.5">
                       <CircleCheck
-                        className="mt-0.5 h-4 w-4 shrink-0 text-mint-600"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-brand-600"
                         aria-hidden="true"
                       />
                       <div className="min-w-0">

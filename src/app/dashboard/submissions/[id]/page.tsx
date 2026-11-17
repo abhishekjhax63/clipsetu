@@ -137,7 +137,7 @@ function TimelineStep({
     <li className="flex items-start gap-3">
       <span
         className={`mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full ${
-          done ? "bg-mint-100 text-mint-700" : "bg-surface-muted text-ink-400"
+          done ? "bg-brand-100 text-brand-700" : "bg-surface-muted text-ink-400"
         }`}
       >
         <Icon className="h-3.5 w-3.5" aria-hidden="true" />
@@ -431,17 +431,17 @@ async function SubmissionDetail({ params }: { params: Promise<{ id: string }> })
         </div>
 
         <aside className="space-y-4">
-          <Card className="border-mint-200 bg-gradient-earn-soft">
+          <Card className="border-brand-100 bg-brand-50">
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center gap-2 text-base">
-                <Wallet className="h-4 w-4 text-mint-600" aria-hidden="true" />
+                <Wallet className="h-4 w-4 text-brand-600" aria-hidden="true" />
                 Reward
               </CardTitle>
             </CardHeader>
             <CardContent className="text-sm text-ink-600">
               {reward && reward.eligible ? (
                 <>
-                  <p className="text-2xl font-bold text-mint-700">
+                  <p className="text-2xl font-bold text-brand-700">
                     {formatINR(reward.net)}
                   </p>
                   <p className="mt-1 text-xs text-ink-500">

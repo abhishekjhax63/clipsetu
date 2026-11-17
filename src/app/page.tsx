@@ -1,8 +1,7 @@
 import Link from "next/link";
-import { ArrowRight, Play, Sparkles } from "lucide-react";
+import { ArrowRight, Check, Play } from "lucide-react";
 import { PublicLayout } from "@/components/layout/public-layout";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import {
   getHomeHero,
   getHomeHowItWorks,
@@ -12,13 +11,14 @@ import {
   type PublicCampaign,
 } from "@/lib/cms";
 
-import { VideoOrbit } from "@/components/home/video-orbit";
-import { MagneticButton } from "@/components/home/magnetic-button";
-import { RevealText } from "@/components/home/reveal-text";
+import { HeroPreview } from "@/components/home/hero-preview";
 import { ScrollReveal } from "@/components/home/scroll-reveal";
 import { EarningsVisualization } from "@/components/home/earnings-visualization";
 import { HowItWorks } from "@/components/home/how-it-works-section";
-import { CampaignShowcase, type ShowcaseCampaign } from "@/components/home/campaign-showcase";
+import {
+  CampaignShowcase,
+  type ShowcaseCampaign,
+} from "@/components/home/campaign-showcase";
 import { TrustSection } from "@/components/home/trust-section";
 import { InteractiveFooter } from "@/components/home/interactive-footer";
 
@@ -36,6 +36,82 @@ function toShowcase(c: PublicCampaign): ShowcaseCampaign {
   };
 }
 
+function AudienceCard({
+  eyebrow,
+  title,
+  points,
+  href,
+  cta,
+  tone,
+}: {
+  eyebrow: string;
+  title: string;
+  points: string[];
+  href: string;
+  cta: string;
+  tone: "light" | "dark";
+}) {
+  const dark = tone === "dark";
+  return (
+    <div
+      className={
+        dark
+          ? "flex flex-col rounded-2xl bg-ink-900 p-7 text-white sm:p-9"
+          : "flex flex-col rounded-2xl border border-border-soft bg-surface p-7 shadow-xs sm:p-9"
+      }
+    >
+      <p
+        className={
+          dark
+            ? "text-xs font-semibold uppercase tracking-[0.16em] text-brand-400"
+            : "text-xs font-semibold uppercase tracking-[0.16em] text-brand-700"
+        }
+      >
+        {eyebrow}
+      </p>
+      <h3
+        className={
+          dark
+            ? "mt-3 text-2xl font-bold tracking-tight"
+            : "mt-3 text-2xl font-bold tracking-tight text-ink-900"
+        }
+      >
+        {title}
+      </h3>
+      <ul className="mt-6 space-y-3">
+        {points.map((point) => (
+          <li key={point} className="flex gap-3 text-sm">
+            <Check
+              className={
+                dark
+                  ? "mt-0.5 h-4 w-4 shrink-0 text-brand-400"
+                  : "mt-0.5 h-4 w-4 shrink-0 text-brand-600"
+              }
+            />
+            <span className={dark ? "text-ink-300" : "text-ink-600"}>
+              {point}
+            </span>
+          </li>
+        ))}
+      </ul>
+      <Button
+        asChild
+        variant={dark ? "secondary" : "outline"}
+        className={
+          dark
+            ? "mt-8 self-start border-0 bg-white text-ink-900 hover:bg-ink-100"
+            : "mt-8 self-start"
+        }
+      >
+        <Link href={href}>
+          {cta}
+          <ArrowRight className="h-4 w-4" />
+        </Link>
+      </Button>
+    </div>
+  );
+}
+
 export default async function HomePage() {
   const [hero, stats, steps, campaigns] = await Promise.all([
     getHomeHero(),
@@ -50,129 +126,168 @@ export default async function HomePage() {
     <PublicLayout footer={<InteractiveFooter />}>
       {/* ============== HERO ============== */}
       <section className="relative overflow-hidden">
-        {/* ambient backdrop */}
-        <div className="pointer-events-none absolute inset-0 -z-10">
-          <div className="absolute left-1/2 top-[-10%] h-[640px] w-[1100px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(134,239,172,0.35),rgba(163,230,53,0.08)_45%,transparent_70%)] blur-2xl" />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(250,250,250,0.6))]" />
-        </div>
+        <div className="bg-grid pointer-events-none absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_at_top,black,transparent_72%)]" />
 
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-12 sm:pt-24 sm:pb-16">
-          <div className="mx-auto max-w-3xl text-center">
-            <Badge
-              variant="success"
-              className="mb-6 px-4 py-1.5 text-xs animate-fade-in-up"
-            >
-              <Sparkles className="mr-1 h-3 w-3" />
+        <div className="mx-auto grid max-w-6xl items-center gap-14 px-4 pb-16 pt-14 sm:px-6 sm:pb-20 sm:pt-20 lg:grid-cols-2 lg:gap-16 lg:px-8">
+          <div>
+            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium text-ink-600 shadow-xs">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand-500" />
               {hero.badge}
-            </Badge>
+            </span>
 
-            <RevealText
-              as="h1"
-              text={`${hero.title} ${hero.titleAccent}`}
-              highlightLast
-              className="text-5xl font-black leading-[1.02] tracking-tight text-ink-900 sm:text-7xl"
-            />
+            <h1 className="mt-6 text-4xl font-bold leading-[1.05] tracking-tight text-ink-900 sm:text-[3.5rem]">
+              {hero.title}{" "}
+              <span className="text-brand-600">{hero.titleAccent}</span>
+            </h1>
 
-            <RevealText
-              as="p"
-              text={hero.subtitle}
-              delay={0.35}
-              stagger={0.03}
-              className="mx-auto mt-6 max-w-xl text-lg text-ink-600"
-            />
+            <p className="mt-6 max-w-lg text-lg text-ink-600">
+              {hero.subtitle}
+            </p>
 
-            <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <MagneticButton>
-                <Button asChild size="lg" className="bg-ink-900 text-white hover:bg-ink-800">
-                  <Link href={safeContentHref(hero.primaryCtaHref, "/signup")}>
-                    Start Earning
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </Button>
-              </MagneticButton>
-              <MagneticButton strength={12}>
-                <Button asChild variant="outline" size="lg">
-                  <Link href="/campaigns">
-                    <Play className="h-4 w-4" />
-                    Explore Campaigns
-                  </Link>
-                </Button>
-              </MagneticButton>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Button asChild size="lg">
+                <Link
+                  href={safeContentHref(hero.primaryCtaHref, "/signup")}
+                >
+                  {hero.primaryCtaLabel}
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="lg">
+                <Link
+                  href={safeContentHref(hero.secondaryCtaHref, "/how-it-works")}
+                >
+                  <Play className="h-4 w-4" />
+                  {hero.secondaryCtaLabel}
+                </Link>
+              </Button>
             </div>
-          </div>
 
-          {/* Signature video orbit */}
-          <div className="mt-16 sm:mt-20">
-            <VideoOrbit />
-            <p className="mt-8 text-center text-xs text-ink-400">
-              Illustrative sample preview — figures shown are examples, not live
-              ClipSetu statistics.
+            <p className="mt-6 text-sm text-ink-400">
+              Free to join · No subscription · Payouts on verified views
             </p>
           </div>
 
-          {/* Stats */}
-          <div className="mx-auto mt-16 grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-4">
-            {stats.map((s, i) => (
-              <ScrollReveal key={s.label} delay={i * 0.08}>
-                <div className="rounded-2xl border border-border-soft bg-white/70 p-5 text-center shadow-sm backdrop-blur">
-                  <div className="text-2xl font-bold text-ink-900 sm:text-3xl">
-                    {s.value}
-                  </div>
-                  <div className="mt-1 text-xs text-ink-500">{s.label}</div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
+          <HeroPreview />
         </div>
       </section>
 
-      {/* ============== EARNINGS ============== */}
-      <EarningsVisualization />
+      {/* ============== STATS ============== */}
+      <section className="border-y border-border-soft bg-canvas-soft">
+        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-8 px-4 py-12 sm:px-6 lg:grid-cols-4 lg:px-8">
+          {stats.map((stat, index) => (
+            <ScrollReveal key={stat.label} delay={index * 0.06}>
+              <div>
+                <p className="tnum text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">
+                  {stat.value}
+                </p>
+                <p className="mt-1.5 text-sm text-ink-500">{stat.label}</p>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </section>
 
       {/* ============== HOW IT WORKS ============== */}
       <HowItWorks steps={steps} />
 
-      {/* ============== CAMPAIGN SHOWCASE ============== */}
+      {/* ============== LIVE CAMPAIGNS ============== */}
       <CampaignShowcase campaigns={showcase} />
+
+      {/* ============== EARNINGS ============== */}
+      <EarningsVisualization />
+
+      {/* ============== AUDIENCES ============== */}
+      <section className="border-t border-border-soft bg-canvas">
+        <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
+          <ScrollReveal className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">
+              One platform, two ways in
+            </h2>
+            <p className="mt-4 text-base text-ink-600">
+              Whether you edit for a living or you&apos;re trying to get your
+              product in front of more people, the workflow is the same — just
+              from opposite ends.
+            </p>
+          </ScrollReveal>
+
+          <div className="mt-14 grid gap-6 lg:grid-cols-2">
+            <ScrollReveal>
+              <AudienceCard
+                eyebrow="For clippers"
+                title="Get paid for the edits you already make"
+                points={[
+                  "Find open campaigns by niche, platform and payout rate.",
+                  "Submit clips and track views and earnings in one place.",
+                  "Withdraw once your views clear verification.",
+                ]}
+                href="/for-clippers"
+                cta="Start clipping"
+                tone="dark"
+              />
+            </ScrollReveal>
+            <ScrollReveal delay={0.08}>
+              <AudienceCard
+                eyebrow="For brands"
+                title="Turn creator clips into reach you can measure"
+                points={[
+                  "Launch a brief with your payout rate and creative rules.",
+                  "Review submissions and approve the ones that fit.",
+                  "Only pay for the verified views your campaign earns.",
+                ]}
+                href="/for-brands"
+                cta="Launch a campaign"
+                tone="light"
+              />
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
 
       {/* ============== TRUST ============== */}
       <TrustSection />
 
       {/* ============== FINAL CTA ============== */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-20 pt-4">
-        <ScrollReveal>
-          <div className="relative overflow-hidden rounded-3xl bg-ink-900 px-6 py-16 text-center sm:px-12">
-            <div className="pointer-events-none absolute -top-20 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-mint-500/20 blur-3xl" />
-            <h2 className="relative text-3xl font-bold text-white sm:text-4xl">
-              Ready to start earning?
-            </h2>
-            <p className="relative mx-auto mt-4 max-w-xl text-ink-300">
-              Create your free account and start earning from campaigns that
-              match your audience — brands and creators growing together.
-            </p>
-            <div className="relative mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <MagneticButton>
-                <Button
-                  asChild
-                  size="lg"
-                  className="bg-mint-500 text-ink-900 hover:bg-mint-400"
-                >
-                  <Link href="/signup">Create free account</Link>
-                </Button>
-              </MagneticButton>
-              <MagneticButton strength={12}>
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="border-white/20 text-white hover:bg-white/10"
-                >
-                  <Link href="/campaigns">Browse campaigns</Link>
-                </Button>
-              </MagneticButton>
+      <section className="bg-canvas-soft">
+        <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
+          <ScrollReveal>
+            <div className="relative overflow-hidden rounded-3xl bg-ink-900 px-6 py-16 text-center sm:px-12">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,rgba(31,135,103,0.45),transparent_62%)]"
+              />
+              <div className="relative">
+                <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                  Ready to start earning?
+                </h2>
+                <p className="mx-auto mt-4 max-w-xl text-ink-300">
+                  Create a free account, pick a campaign that fits your audience,
+                  and start turning clips into income.
+                </p>
+                <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                  <Button
+                    asChild
+                    size="lg"
+                    className="bg-brand-500 text-white hover:bg-brand-400"
+                  >
+                    <Link href="/signup">
+                      Create free account
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </Button>
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="lg"
+                    className="border-white/20 text-white hover:bg-white/10"
+                  >
+                    <Link href="/campaigns">Browse campaigns</Link>
+                  </Button>
+                </div>
+              </div>
             </div>
-          </div>
-        </ScrollReveal>
+          </ScrollReveal>
+        </div>
       </section>
     </PublicLayout>
   );

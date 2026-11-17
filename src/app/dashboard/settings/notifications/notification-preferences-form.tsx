@@ -44,7 +44,7 @@ function ToggleRow({
         />
         <span
           aria-hidden="true"
-          className="h-6 w-11 rounded-full bg-surface-muted ring-1 ring-inset ring-border transition-colors peer-checked:bg-mint-600 peer-focus-visible:ring-2 peer-focus-visible:ring-mint-500"
+          className="h-6 w-11 rounded-full bg-surface-muted ring-1 ring-inset ring-border transition-colors peer-checked:bg-brand-600 peer-focus-visible:ring-2 peer-focus-visible:ring-brand-500"
         />
         <span
           aria-hidden="true"

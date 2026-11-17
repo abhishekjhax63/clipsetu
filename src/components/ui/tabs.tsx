@@ -13,7 +13,7 @@ const TabsList = React.forwardRef<
   <TabsPrimitive.List
     ref={ref}
     className={cn(
-      "inline-flex h-10 items-center justify-center rounded-xl bg-surface-muted p-1 text-ink-500",
+      "inline-flex h-10 items-center justify-center rounded-lg border border-border-soft bg-surface-muted p-1 text-ink-500",
       className
     )}
     {...props}
@@ -28,10 +28,10 @@ const TabsTrigger = React.forwardRef<
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      "inline-flex items-center justify-center whitespace-nowrap rounded-lg px-3 py-1.5 text-sm font-medium transition-all",
-      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mint-500",
+      "inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium transition-all",
+      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500",
       "disabled:pointer-events-none disabled:opacity-50",
-      "data-[state=active]:bg-surface data-[state=active]:text-ink-900 data-[state=active]:shadow-sm",
+      "data-[state=active]:bg-surface data-[state=active]:text-ink-900 data-[state=active]:shadow-xs",
       className
     )}
     {...props}
@@ -46,7 +46,7 @@ const TabsContent = React.forwardRef<
   <TabsPrimitive.Content
     ref={ref}
     className={cn(
-      "mt-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mint-500",
+      "mt-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500",
       className
     )}
     {...props}

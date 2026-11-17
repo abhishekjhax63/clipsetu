@@ -1,78 +1,63 @@
-"use client";
-
-import { motion } from "framer-motion";
-import {
-  ShieldCheck,
-  BadgeCheck,
-  Wallet,
-  Megaphone,
-  type LucideIcon,
-} from "lucide-react";
+import { IndianRupee, Scale, ShieldCheck, Sparkles } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { ScrollReveal } from "./scroll-reveal";
 
-const PILLARS: {
-  icon: LucideIcon;
-  title: string;
-  desc: string;
-}[] = [
-  {
-    icon: BadgeCheck,
-    title: "Verified performance",
-    desc: "View counts come from official platform APIs. We never inflate or estimate engagement.",
-  },
-  {
-    icon: Wallet,
-    title: "Secure payouts",
-    desc: "An append-only double-entry ledger backs every wallet transaction. Withdrawals are KYC-gated.",
-  },
-  {
-    icon: Megaphone,
-    title: "Real campaigns",
-    desc: "Every campaign is funded and moderated before it goes live. No fake opportunities.",
-  },
+const PILLARS: { icon: LucideIcon; title: string; desc: string }[] = [
   {
     icon: ShieldCheck,
-    title: "Transparent rewards",
-    desc: "Reward rules are set upfront by the brand. You always know what you'll earn per 1,000 views.",
+    title: "Verified views only",
+    desc: "Inflated or duplicated views are filtered before they ever count toward a payout.",
+  },
+  {
+    icon: IndianRupee,
+    title: "Clear payout trail",
+    desc: "See what you've earned, what's pending verification and what's already been paid.",
+  },
+  {
+    icon: Scale,
+    title: "Fair review on disputes",
+    desc: "If something looks off, raise a dispute and our team reviews both sides of it.",
+  },
+  {
+    icon: Sparkles,
+    title: "Campaigns worth clipping",
+    desc: "Brands across India, with briefs that are clear about the rate and the rules.",
   },
 ];
 
 export function TrustSection() {
   return (
-    <section className="relative overflow-hidden bg-ink-900 py-24 text-white">
-      {/* ambient glow */}
-      <div className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-[800px] -translate-x-1/2 rounded-full bg-mint-500/10 blur-3xl" />
-
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <ScrollReveal className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-mint-400">
-            Built on trust
+    <section className="border-t border-border-soft bg-canvas-soft">
+      <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
+        <ScrollReveal className="max-w-2xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-700">
+            Why ClipSetu
           </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
-            Fair by design, verified at every step
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">
+            Built for creators and brands who want fewer surprises
           </h2>
-          <p className="mt-4 text-ink-300">
-            ClipSetu is engineered so creators and brands never have to take
-            each other&apos;s word for it.
+          <p className="mt-4 text-base text-ink-600">
+            A clipping marketplace only works if both sides trust the numbers.
+            That&apos;s the part we obsess over.
           </p>
         </ScrollReveal>
 
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {PILLARS.map((p, i) => (
-            <ScrollReveal key={p.title} delay={i * 0.1}>
-              <motion.div
-                whileHover={{ y: -4 }}
-                transition={{ type: "spring", stiffness: 300, damping: 22 }}
-                className="group h-full rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-mint-500/15 text-mint-400 transition-colors group-hover:bg-mint-500/25">
-                  <p.icon className="h-6 w-6" />
+        <div className="mt-14 grid gap-5 sm:grid-cols-2">
+          {PILLARS.map((pillar, index) => (
+            <ScrollReveal key={pillar.title} delay={index * 0.06}>
+              <div className="flex h-full gap-4 rounded-2xl border border-border-soft bg-surface p-6 shadow-xs">
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-brand-50 text-brand-700">
+                  <pillar.icon className="h-5 w-5" aria-hidden="true" />
+                </span>
+                <div>
+                  <h3 className="text-base font-semibold text-ink-900">
+                    {pillar.title}
+                  </h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-ink-500">
+                    {pillar.desc}
+                  </p>
                 </div>
-                <h3 className="mt-5 text-lg font-semibold">{p.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-300">
-                  {p.desc}
-                </p>
-              </motion.div>
+              </div>
             </ScrollReveal>
           ))}
         </div>

@@ -28,9 +28,9 @@ export function ResetPasswordForm() {
 
   if (state?.success) {
     return (
-      <div className="rounded-2xl border border-border-soft bg-surface p-8 shadow-sm text-center">
-        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-mint-100">
-          <Lock className="h-6 w-6 text-mint-600" />
+      <div className="rounded-2xl border border-border-soft bg-surface p-6 text-center shadow-sm sm:p-8">
+        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-brand-50">
+          <Lock className="h-6 w-6 text-brand-600" aria-hidden="true" />
         </div>
         <h1 className="mt-4 text-2xl font-bold text-ink-900">Password updated</h1>
         <p className="mt-2 text-sm text-ink-500">
@@ -38,7 +38,9 @@ export function ResetPasswordForm() {
           your new password.
         </p>
         <Link
-          href="/login" className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-mint-600 hover:underline">
+          href="/login"
+          className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-brand-600 hover:underline"
+        >
           Back to login
         </Link>
       </div>
@@ -46,7 +48,7 @@ export function ResetPasswordForm() {
   }
 
   return (
-    <div className="rounded-2xl border border-border-soft bg-surface p-8 shadow-sm">
+    <div className="rounded-2xl border border-border-soft bg-surface p-6 shadow-sm sm:p-8">
       <h1 className="text-2xl font-bold text-ink-900">Set new password</h1>
       <p className="mt-1 text-sm text-ink-500">
         Choose a strong password for your account.
@@ -66,13 +68,14 @@ export function ResetPasswordForm() {
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-ink-400 hover:text-ink-600"
+              aria-label={showPassword ? "Hide password" : "Show password"}
+              className="absolute right-3 top-1/2 -translate-y-1/2 rounded-md p-1 text-ink-400 transition-colors hover:text-ink-700"
             >
               {showPassword ? (
-              <EyeOff className="h-4 w-4" />
-            ) : (
-              <Eye className="h-4 w-4" />
-            )}
+                <EyeOff className="h-4 w-4" />
+              ) : (
+                <Eye className="h-4 w-4" />
+              )}
             </button>
           </div>
           {state?.errors?.password && (
@@ -93,7 +96,8 @@ export function ResetPasswordForm() {
             <button
               type="button"
               onClick={() => setShowConfirm(!showConfirm)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-ink-400 hover:text-ink-600"
+              aria-label={showConfirm ? "Hide password" : "Show password"}
+              className="absolute right-3 top-1/2 -translate-y-1/2 rounded-md p-1 text-ink-400 transition-colors hover:text-ink-700"
             >
               {showConfirm ? (
                 <EyeOff className="h-4 w-4" />

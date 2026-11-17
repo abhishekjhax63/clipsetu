@@ -40,8 +40,8 @@ const features = [
 export default function ForBrandsPage() {
   return (
     <PublicLayout>
-      <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pt-16 pb-12 text-center">
-        <Badge variant="secondary" className="mb-6">For Brands</Badge>
+      <section className="mx-auto max-w-4xl px-4 pt-16 pb-12 text-center sm:px-6 lg:px-8">
+        <Badge variant="success" className="mb-6">For Brands</Badge>
         <h1 className="text-4xl font-bold tracking-tight text-ink-900 sm:text-5xl">
           Authentic creator content.{" "}
           <span className="gradient-text-brand">Verified results.</span>
@@ -63,20 +63,20 @@ export default function ForBrandsPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16">
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {features.map((f) => (
             <div
               key={f.title}
-              className="rounded-2xl border border-border-soft bg-surface p-6 shadow-sm"
+              className="rounded-2xl border border-border-soft bg-surface p-6 shadow-xs transition-colors hover:border-brand-200"
             >
-              <span className="flex h-11 w-11 items-center justify-center rounded-xl gradient-earn-soft">
-                <f.icon className="h-5 w-5 text-mint-700" />
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-brand-100 bg-brand-50">
+                <f.icon className="h-5 w-5 text-brand-700" aria-hidden="true" />
               </span>
               <h3 className="mt-4 text-base font-semibold text-ink-900">
                 {f.title}
               </h3>
-              <p className="mt-2 text-sm text-ink-500 leading-relaxed">
+              <p className="mt-2 text-sm leading-relaxed text-ink-500">
                 {f.desc}
               </p>
             </div>
@@ -84,7 +84,7 @@ export default function ForBrandsPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16">
+      <section className="mx-auto max-w-6xl px-4 py-4 sm:px-6 lg:px-8">
         <div className="grid gap-6 md:grid-cols-3">
           {[
             { value: "10%", label: "Flat platform fee, disclosed upfront" },
@@ -93,26 +93,38 @@ export default function ForBrandsPage() {
           ].map((s) => (
             <div
               key={s.label}
-              className="rounded-2xl border border-border-soft bg-surface p-8 text-center shadow-sm"
+              className="rounded-2xl border border-border-soft bg-surface-soft p-8 text-center"
             >
-              <div className="text-4xl font-bold text-ink-900">{s.value}</div>
+              <div className="font-display tnum text-4xl font-bold tracking-tight text-ink-900">
+                {s.value}
+              </div>
               <div className="mt-2 text-sm text-ink-500">{s.label}</div>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pb-20">
-        <div className="rounded-3xl bg-ink-900 p-8 sm:p-12 text-center">
-          <h2 className="text-2xl font-bold text-white sm:text-3xl">
-            Launch your first campaign today
-          </h2>
-          <p className="mx-auto mt-3 max-w-lg text-ink-300">
-            No setup fees. Pay only when verified views come in.
-          </p>
-          <Button asChild size="lg" className="mt-6 bg-mint-500 text-ink-900 hover:bg-mint-400">
-            <Link href="/signup">Get started</Link>
-          </Button>
+      <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="relative overflow-hidden rounded-3xl bg-ink-900 p-8 text-center sm:p-12">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -top-24 left-1/2 h-64 w-[36rem] -translate-x-1/2 rounded-full bg-brand-500/25 blur-3xl"
+          />
+          <div className="relative">
+            <h2 className="text-2xl font-bold text-white sm:text-3xl">
+              Launch your first campaign today
+            </h2>
+            <p className="mx-auto mt-3 max-w-lg text-ink-300">
+              No setup fees. Pay only when verified views come in.
+            </p>
+            <Button
+              asChild
+              size="lg"
+              className="mt-6 bg-brand-500 text-white hover:bg-brand-400"
+            >
+              <Link href="/signup">Get started</Link>
+            </Button>
+          </div>
         </div>
       </section>
     </PublicLayout>

@@ -68,7 +68,7 @@ const demoCampaigns = [
 export default function CampaignsPage() {
   return (
     <PublicLayout>
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 pb-8">
+      <section className="mx-auto max-w-7xl px-4 pt-12 pb-8 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h1 className="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">
@@ -102,7 +102,7 @@ export default function CampaignsPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-20">
+      <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
         <div className="grid gap-6 md:grid-cols-2">
           {demoCampaigns.map((c) => (
             <Card key={c.id} className="overflow-hidden hover:shadow-md transition-shadow">
@@ -128,21 +128,21 @@ export default function CampaignsPage() {
                 <div className="mt-5 grid grid-cols-2 gap-4 text-sm">
                   <div>
                     <p className="text-ink-500">Reward / 1K views</p>
-                    <p className="font-semibold text-ink-900">
+                    <p className="tnum font-semibold text-ink-900">
                       <IndianRupee className="inline h-3.5 w-3.5" />
                       {c.rewardPer1k}
                     </p>
                   </div>
                   <div>
                     <p className="text-ink-500">Max reward</p>
-                    <p className="font-semibold text-ink-900">
+                    <p className="tnum font-semibold text-ink-900">
                       <IndianRupee className="inline h-3.5 w-3.5" />
                       {c.maxReward.toLocaleString("en-IN")}
                     </p>
                   </div>
                   <div>
                     <p className="text-ink-500">Remaining budget</p>
-                    <p className="font-semibold text-mint-700">
+                    <p className="tnum font-semibold text-brand-700">
                       <IndianRupee className="inline h-3.5 w-3.5" />
                       {c.remainingBudget.toLocaleString("en-IN")}
                     </p>

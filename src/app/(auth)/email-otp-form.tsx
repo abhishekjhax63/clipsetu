@@ -69,11 +69,12 @@ export function EmailOtpForm({ variant = "signin" }: EmailOtpFormProps) {
                 <button
                   key={option.id}
                   type="button"
+                  aria-pressed={role === option.id}
                   onClick={() => setRole(option.id)}
                   className={cn(
-                    "rounded-xl border-2 p-3 text-center transition-all",
+                    "rounded-xl border p-3 text-center transition-colors",
                     role === option.id
-                      ? "border-mint-500 bg-mint-50"
+                      ? "border-brand-600 bg-brand-50 ring-1 ring-brand-600/20"
                       : "border-border hover:border-ink-300"
                   )}
                 >
@@ -133,7 +134,7 @@ export function EmailOtpForm({ variant = "signin" }: EmailOtpFormProps) {
   return (
     <div className="space-y-4">
       <div className="flex items-start gap-3 rounded-xl bg-surface-muted p-3">
-        <MailCheck className="mt-0.5 h-4 w-4 shrink-0 text-mint-600" />
+        <MailCheck className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" aria-hidden="true" />
         <p className="text-xs text-ink-500">
           Enter the code sent to{" "}
           <span className="font-medium text-ink-900">{email}</span>.
@@ -187,7 +188,7 @@ export function EmailOtpForm({ variant = "signin" }: EmailOtpFormProps) {
           <button
             type="submit"
             disabled={sending}
-            className="font-medium text-mint-600 hover:underline disabled:opacity-50"
+            className="font-medium text-brand-600 hover:underline disabled:opacity-50"
           >
             {sending ? "Sending..." : "Resend code"}
           </button>

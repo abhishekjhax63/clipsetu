@@ -485,7 +485,7 @@ async function CampaignDetail({ params }: { params: Promise<{ id: string }> }) {
                     {formatNumber(sampleViews)}
                   </span>{" "}
                   verified views you would receive about{" "}
-                  <span className="font-semibold text-mint-700">
+                  <span className="tnum font-semibold text-brand-700">
                     {formatINR(example.net)}
                   </span>{" "}
                   after the {PLATFORM_FEE_PERCENT}% platform fee
@@ -549,7 +549,7 @@ async function CampaignDetail({ params }: { params: Promise<{ id: string }> }) {
 
           {/* Sidebar */}
           <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
-            <Card className="border-mint-200 bg-gradient-earn-soft">
+            <Card className="border-brand-100 bg-brand-50">
               <CardContent className="p-6">
                 <div className="grid grid-cols-2 gap-4">
                   <div>
@@ -572,7 +572,7 @@ async function CampaignDetail({ params }: { params: Promise<{ id: string }> }) {
                   </div>
                   <div>
                     <p className="text-xs text-ink-500">Remaining budget</p>
-                    <p className="text-sm font-semibold text-mint-700">
+                    <p className="tnum text-sm font-semibold text-brand-700">
                       {formatINR(Number(campaign.remaining_budget))}
                     </p>
                   </div>

@@ -55,8 +55,8 @@ export default function ContactPage() {
           {channels.map((c) => (
             <Card key={c.title}>
               <CardContent className="p-6">
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl gradient-earn-soft">
-                  <c.icon className="h-5 w-5 text-mint-700" aria-hidden="true" />
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-brand-100 bg-brand-50">
+                  <c.icon className="h-5 w-5 text-brand-700" aria-hidden="true" />
                 </span>
                 <h2 className="mt-4 font-semibold text-ink-900">{c.title}</h2>
                 <p className="mt-1 text-sm font-medium text-ink-700">{c.body}</p>
@@ -68,9 +68,9 @@ export default function ContactPage() {
       </section>
 
       <section className="mx-auto max-w-2xl px-4 pb-20 sm:px-6 lg:px-8">
-        <div className="rounded-3xl border border-border-soft bg-surface p-6 shadow-sm sm:p-8">
+        <div className="rounded-3xl border border-border-soft bg-surface p-6 shadow-xs sm:p-8">
           <div className="mb-6 flex items-center gap-2">
-            <MessageSquare className="h-5 w-5 text-mint-600" aria-hidden="true" />
+            <MessageSquare className="h-5 w-5 text-brand-600" aria-hidden="true" />
             <h2 className="text-lg font-semibold text-ink-900">
               Send us a message
             </h2>

@@ -62,13 +62,13 @@ export default function HowItWorksPage() {
           {steps.map((item) => (
             <div
               key={item.step}
-              className="flex flex-col gap-4 rounded-2xl border border-border-soft bg-surface p-6 shadow-sm sm:flex-row sm:items-center sm:gap-6"
+              className="flex flex-col gap-4 rounded-2xl border border-border-soft bg-surface p-6 shadow-xs transition-colors hover:border-brand-200 sm:flex-row sm:items-center sm:gap-6"
             >
               <div className="flex items-center gap-4 sm:w-48 sm:shrink-0">
-                <span className="flex h-12 w-12 items-center justify-center rounded-xl gradient-earn-soft shrink-0">
-                  <item.icon className="h-6 w-6 text-mint-700" />
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-brand-100 bg-brand-50">
+                  <item.icon className="h-6 w-6 text-brand-700" aria-hidden="true" />
                 </span>
-                <span className="text-3xl font-bold text-ink-100">
+                <span className="font-display tnum text-3xl font-extrabold text-ink-200">
                   {item.step}
                 </span>
               </div>
@@ -85,24 +85,39 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pb-20">
-        <div className="rounded-3xl gradient-earn p-8 sm:p-12 text-center">
-          <h2 className="text-2xl font-bold text-ink-900 sm:text-3xl">
-            Ready to start clipping?
-          </h2>
-          <p className="mx-auto mt-3 max-w-lg text-ink-800/80">
-            Start earning from verified views.
-          </p>
-          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button asChild size="lg" className="bg-ink-900 text-white hover:bg-ink-800">
-              <Link href="/signup">
-                Create free account
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Button>
-            <Button asChild variant="outline" size="lg">
-              <Link href="/campaigns">Browse campaigns</Link>
-            </Button>
+      <section className="mx-auto max-w-4xl px-4 pb-20 sm:px-6 lg:px-8">
+        <div className="relative overflow-hidden rounded-3xl bg-ink-900 p-8 text-center sm:p-12">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -top-24 left-1/2 h-64 w-[36rem] -translate-x-1/2 rounded-full bg-brand-500/25 blur-3xl"
+          />
+          <div className="relative">
+            <h2 className="text-2xl font-bold text-white sm:text-3xl">
+              Ready to start clipping?
+            </h2>
+            <p className="mx-auto mt-3 max-w-lg text-ink-300">
+              Start earning from verified views.
+            </p>
+            <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <Button
+                asChild
+                size="lg"
+                className="bg-brand-500 text-white hover:bg-brand-400"
+              >
+                <Link href="/signup">
+                  Create free account
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="border-white/20 bg-transparent text-white hover:bg-white/10 hover:text-white"
+              >
+                <Link href="/campaigns">Browse campaigns</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

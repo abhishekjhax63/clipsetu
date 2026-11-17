@@ -23,8 +23,8 @@ export function AppealForm({ submissionId }: { submissionId: string }) {
 
   if (state?.success) {
     return (
-      <div className="flex flex-col items-center rounded-2xl border border-mint-200 bg-gradient-earn-soft px-6 py-10 text-center">
-        <CircleCheckBig className="h-8 w-8 text-mint-600" aria-hidden="true" />
+      <div className="flex flex-col items-center rounded-2xl border border-brand-100 bg-brand-50 px-6 py-10 text-center">
+        <CircleCheckBig className="h-8 w-8 text-brand-600" aria-hidden="true" />
         <p className="mt-3 font-semibold text-ink-900">Appeal submitted</p>
         <p className="mt-1 max-w-sm text-sm text-ink-600">{state.message}</p>
       </div>

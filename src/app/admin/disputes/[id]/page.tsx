@@ -175,7 +175,7 @@ async function DisputeDetail({ params }: { params: Promise<{ id: string }> }) {
       </Card>
 
       {dispute.resolution ? (
-        <Card className="border-mint-200 bg-gradient-earn-soft">
+        <Card className="border-brand-100 bg-brand-50">
           <CardHeader className="pb-3">
             <CardTitle className="text-base">Resolution</CardTitle>
             <CardDescription>How this dispute was resolved</CardDescription>

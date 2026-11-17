@@ -122,7 +122,7 @@ function EligibilityList({ rule }: { rule: DiscoverRule | null }) {
       {items.map((item) => (
         <li key={item} className="flex items-start gap-1.5">
           <ShieldCheck
-            className="mt-0.5 h-3.5 w-3.5 shrink-0 text-mint-600"
+            className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-600"
             aria-hidden="true"
           />
           {item}
@@ -196,7 +196,7 @@ function CampaignCard({
           </div>
           <div>
             <dt className="text-xs text-ink-400">Remaining budget</dt>
-            <dd className="font-semibold text-mint-700">
+            <dd className="font-semibold text-brand-700">
               {formatINR(Number(campaign.remaining_budget))}
             </dd>
           </div>
@@ -401,10 +401,10 @@ export default function DiscoverPage({
         <DiscoverResults searchParams={searchParams} />
       </Suspense>
 
-      <Card className="border-mint-200 bg-gradient-earn-soft">
+      <Card className="border-brand-100 bg-brand-50">
         <CardContent className="flex flex-col gap-3 p-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-start gap-3">
-            <Wallet className="mt-0.5 h-5 w-5 text-mint-700" aria-hidden="true" />
+            <Wallet className="mt-0.5 h-5 w-5 text-brand-700" aria-hidden="true" />
             <div>
               <p className="font-semibold text-ink-900">
                 Rewards come from verified views only
