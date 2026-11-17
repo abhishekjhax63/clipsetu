@@ -12,7 +12,6 @@ import {
   type PublicCampaign,
 } from "@/lib/cms";
 
-import { CustomCursor } from "@/components/home/custom-cursor";
 import { VideoOrbit } from "@/components/home/video-orbit";
 import { MagneticButton } from "@/components/home/magnetic-button";
 import { RevealText } from "@/components/home/reveal-text";
@@ -49,8 +48,6 @@ export default async function HomePage() {
 
   return (
     <PublicLayout footer={<InteractiveFooter />}>
-      <CustomCursor />
-
       {/* ============== HERO ============== */}
       <section className="relative overflow-hidden">
         {/* ambient backdrop */}
