@@ -82,7 +82,7 @@ export function PayoutForm({
         <p
           className={
             state.ok
-              ? "rounded-xl border border-brand-100 bg-brand-50 p-3 text-xs text-ink-700"
+              ? "rounded-xl border border-mint-200 bg-gradient-earn-soft p-3 text-xs text-ink-700"
               : "rounded-xl border border-warning/30 bg-warning-soft/40 p-3 text-xs text-ink-600"
           }
         >

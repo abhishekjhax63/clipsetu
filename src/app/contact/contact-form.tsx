@@ -21,8 +21,8 @@ export function ContactForm() {
 
   if (state?.success) {
     return (
-      <div className="flex flex-col items-center rounded-2xl border border-brand-100 bg-brand-50 px-6 py-12 text-center">
-        <CircleCheckBig className="h-8 w-8 text-brand-600" aria-hidden="true" />
+      <div className="flex flex-col items-center rounded-2xl border border-mint-200 bg-gradient-earn-soft px-6 py-12 text-center">
+        <CircleCheckBig className="h-8 w-8 text-mint-600" aria-hidden="true" />
         <p className="mt-4 font-semibold text-ink-900">Message sent</p>
         <p className="mt-1 max-w-sm text-sm text-ink-600">{state.message}</p>
       </div>

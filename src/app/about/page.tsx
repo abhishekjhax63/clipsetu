@@ -65,7 +65,7 @@ const values = [
 export default function AboutPage() {
   return (
     <PublicLayout>
-      <section className="mx-auto max-w-4xl px-4 pt-16 pb-12 text-center sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pt-16 pb-12 text-center">
         <Badge variant="success" className="mb-6">
           About ClipSetu
         </Badge>
@@ -82,10 +82,10 @@ export default function AboutPage() {
         </p>
       </section>
 
-      <section className="mx-auto max-w-4xl px-4 pb-16 sm:px-6 lg:px-8">
-        <div className="rounded-3xl border border-border-soft bg-surface p-8 shadow-xs sm:p-10">
+      <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pb-16">
+        <div className="rounded-3xl border border-border-soft bg-surface p-8 shadow-sm sm:p-10">
           <div className="flex items-center gap-2">
-            <Sparkles className="h-5 w-5 text-brand-600" aria-hidden="true" />
+            <Sparkles className="h-5 w-5 text-mint-600" aria-hidden="true" />
             <h2 className="text-xl font-semibold text-ink-900">Our mission</h2>
           </div>
           <p className="mt-4 text-ink-600 leading-relaxed">
@@ -103,7 +103,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-4 pb-16 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 pb-16">
         <div className="mb-8 text-center">
           <h2 className="text-2xl font-bold tracking-tight text-ink-900 sm:text-3xl">
             How ClipSetu is different
@@ -116,8 +116,8 @@ export default function AboutPage() {
           {differentiators.map((item) => (
             <Card key={item.title}>
               <CardContent className="p-6">
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-brand-100 bg-brand-50">
-                  <item.icon className="h-5 w-5 text-brand-700" aria-hidden="true" />
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl gradient-earn-soft">
+                  <item.icon className="h-5 w-5 text-mint-700" aria-hidden="true" />
                 </span>
                 <h3 className="mt-4 text-lg font-semibold text-ink-900">
                   {item.title}
@@ -131,7 +131,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-4 pb-16 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 pb-16">
         <div className="mb-8 text-center">
           <h2 className="text-2xl font-bold tracking-tight text-ink-900 sm:text-3xl">
             What we stand for
@@ -143,7 +143,7 @@ export default function AboutPage() {
               key={value.title}
               className="rounded-2xl border border-border-soft bg-surface-soft p-6"
             >
-              <value.icon className="h-6 w-6 text-brand-600" aria-hidden="true" />
+              <value.icon className="h-6 w-6 text-mint-600" aria-hidden="true" />
               <h3 className="mt-4 font-semibold text-ink-900">{value.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink-500">
                 {value.desc}
@@ -153,40 +153,29 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-4xl px-4 pb-20 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-3xl bg-ink-900 p-8 text-center sm:p-12">
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -top-24 left-1/2 h-64 w-[36rem] -translate-x-1/2 rounded-full bg-brand-500/25 blur-3xl"
-          />
-          <div className="relative">
-            <h2 className="text-2xl font-bold text-white sm:text-3xl">
-              Start creating — or start a campaign
-            </h2>
-            <p className="mx-auto mt-3 max-w-lg text-ink-300">
-              Join as a creator to earn from verified views, or launch a campaign
-              to reach India&apos;s clipping community.
-            </p>
-            <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Button
-                asChild
-                size="lg"
-                className="bg-brand-500 text-white hover:bg-brand-400"
-              >
-                <Link href="/signup">
-                  Create free account
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="border-white/20 bg-transparent text-white hover:bg-white/10 hover:text-white"
-              >
-                <Link href="/campaigns">Browse campaigns</Link>
-              </Button>
-            </div>
+      <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pb-20">
+        <div className="rounded-3xl gradient-earn p-8 text-center sm:p-12">
+          <h2 className="text-2xl font-bold text-ink-900 sm:text-3xl">
+            Start creating — or start a campaign
+          </h2>
+          <p className="mx-auto mt-3 max-w-lg text-ink-800/80">
+            Join as a creator to earn from verified views, or launch a campaign to
+            reach India&apos;s clipping community.
+          </p>
+          <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Button
+              asChild
+              size="lg"
+              className="bg-ink-900 text-white hover:bg-ink-800"
+            >
+              <Link href="/signup">
+                Create free account
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </Button>
+            <Button asChild variant="outline" size="lg">
+              <Link href="/campaigns">Browse campaigns</Link>
+            </Button>
           </div>
         </div>
       </section>

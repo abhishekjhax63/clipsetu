@@ -188,7 +188,7 @@ async function TicketThread({ params }: { params: Promise<{ id: string }> }) {
                   <div
                     className={`max-w-[85%] rounded-2xl border p-4 ${
                       mine
-                        ? "border-brand-100 bg-brand-50"
+                        ? "border-mint-200 bg-gradient-earn-soft"
                         : "border-border-soft bg-surface-soft"
                     }`}
                   >

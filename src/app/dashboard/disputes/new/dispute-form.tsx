@@ -14,7 +14,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
 const SELECT_CLASS =
-  "h-11 w-full rounded-lg border border-border bg-surface px-3 text-sm text-ink-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/25 focus-visible:border-brand-500";
+  "h-11 w-full rounded-xl border border-border bg-surface px-3 text-sm text-ink-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mint-500 focus-visible:border-mint-500";
 
 const TYPES = [
   { value: "submission", label: "Submission" },

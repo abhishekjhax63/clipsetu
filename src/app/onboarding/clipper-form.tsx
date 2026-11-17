@@ -111,7 +111,7 @@ export function ClipperOnboardingForm({ defaultName = "" }: { defaultName?: stri
                 className={cn(
                   "rounded-full border px-4 py-1.5 text-sm font-medium transition-colors",
                   active
-                    ? "border-brand-600 bg-brand-50 text-brand-700"
+                    ? "border-mint-500 bg-mint-50 text-mint-700"
                     : "border-border bg-surface text-ink-600 hover:bg-surface-muted"
                 )}
               >

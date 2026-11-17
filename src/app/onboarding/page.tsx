@@ -84,9 +84,7 @@ export default function OnboardingPage() {
   return (
     <>
       <div className="mb-8">
-        <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-brand-100 bg-brand-50">
-          <BadgeCheck className="h-6 w-6 text-brand-700" aria-hidden="true" />
-        </span>
+        <BadgeCheck className="h-8 w-8 text-mint-600" aria-hidden="true" />
         <h1 className="mt-4 text-2xl font-bold tracking-tight text-ink-900 sm:text-3xl">
           Complete your profile
         </h1>

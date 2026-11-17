@@ -73,9 +73,9 @@ export default async function HelpPage() {
             return (
               <Card key={`${category.title}-${index}`} className="flex flex-col">
                 <CardHeader>
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-50">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl gradient-earn-soft">
                     <CategoryIcon
-                      className="h-5 w-5 text-brand-700"
+                      className="h-5 w-5 text-mint-700"
                       aria-hidden="true"
                     />
                   </span>
@@ -111,7 +111,7 @@ export default async function HelpPage() {
       <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pb-20">
         <div className="rounded-3xl bg-ink-900 p-8 text-center sm:p-12">
           <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-white/10">
-            <LifeBuoy className="h-6 w-6 text-brand-400" aria-hidden="true" />
+            <LifeBuoy className="h-6 w-6 text-mint-400" aria-hidden="true" />
           </span>
           <h2 className="mt-4 text-2xl font-bold text-white">
             Still need help?

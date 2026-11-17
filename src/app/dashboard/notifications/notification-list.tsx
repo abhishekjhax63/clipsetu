@@ -128,7 +128,7 @@ export function NotificationList({
                   "flex items-start gap-3 rounded-2xl border p-4 transition-colors",
                   read
                     ? "border-border-soft bg-surface"
-                    : "border-brand-200 bg-brand-50"
+                    : "border-mint-200 bg-mint-50"
                 )}
               >
                 <span
@@ -136,7 +136,7 @@ export function NotificationList({
                     "mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full",
                     read
                       ? "bg-surface-muted text-ink-400"
-                      : "bg-brand-100 text-brand-700"
+                      : "bg-mint-100 text-mint-700"
                   )}
                   aria-hidden="true"
                 >
@@ -147,7 +147,7 @@ export function NotificationList({
                   <div className="flex items-center gap-2">
                     {!read ? (
                       <span
-                        className="h-2 w-2 shrink-0 rounded-full bg-brand-600"
+                        className="h-2 w-2 shrink-0 rounded-full bg-mint-600"
                         role="img"
                         aria-label="Unread"
                       />

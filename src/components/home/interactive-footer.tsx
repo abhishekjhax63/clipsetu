@@ -66,7 +66,7 @@ export function InteractiveFooter() {
             className="h-16 w-16 object-contain sm:h-20 sm:w-20"
           />
           <h2 className="mt-6 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-            Clip<span className="text-brand-400">Setu</span>
+            Clip<span className="text-mint-400">Setu</span>
           </h2>
           <p className="mt-4 max-w-xl text-sm text-ink-400 sm:text-base">
             Create. Clip. Publish. Earn. — India&apos;s creator-powered clipping
@@ -88,20 +88,20 @@ export function InteractiveFooter() {
                 className="h-10 w-10 object-contain"
               />
               <span className="text-xl font-bold tracking-tight">
-                Clip<span className="text-brand-400">Setu</span>
+                Clip<span className="text-mint-400">Setu</span>
               </span>
             </div>
             <p className="mt-4 max-w-xs text-sm text-ink-400">
               India&apos;s creator-powered clipping marketplace. Create. Clip.
               Publish. Earn.
             </p>
-            <div className="mt-5 flex flex-wrap gap-2">
-              {["Instagram", "YouTube", "X", "LinkedIn"].map((label) => (
+            <div className="mt-5 flex gap-3">
+              {["Instagram", "YouTube", "X", "LinkedIn"].map((s) => (
                 <span
-                  key={label}
-                  className="rounded-full border border-white/10 px-3 py-1.5 text-xs text-ink-300 transition-colors hover:border-brand-400/50 hover:text-brand-400"
+                  key={s}
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-xs text-ink-300 transition-colors hover:border-mint-400/50 hover:text-mint-400"
                 >
-                  {label}
+                  {s[0]}
                 </span>
               ))}
             </div>
@@ -119,7 +119,7 @@ export function InteractiveFooter() {
                     >
                       <span className="relative">
                         {link.label}
-                        <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-brand-400 transition-all duration-300 group-hover:w-full" />
+                        <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-mint-400 transition-all duration-300 group-hover:w-full" />
                       </span>
                     </Link>
                   </li>

@@ -1,89 +1,85 @@
 @import "tailwindcss";
 
 /* ============================================================
-   CLIPSETU — Design System
-   Editorial fintech: warm paper, graphite ink, deep emerald accent.
-   The brand mark is black + green, so the palette is deliberately
-   built on a graphite/emerald axis rather than the neon mint/lime
-   that shipped in the first pass.
+   CLIPSETU — Design System Tokens
+   Premium minimal fintech UI
    ============================================================ */
 
 @theme inline {
-  /* ---------- Brand ramp (emerald) ---------- */
-  --color-brand-50: #eef6f2;
-  --color-brand-100: #d3e9df;
-  --color-brand-200: #a9d5c3;
-  --color-brand-300: #79bda5;
-  --color-brand-400: #4aa286;
-  --color-brand-500: #1f8767;
-  --color-brand-600: #166e54;
-  --color-brand-700: #115743;
-  --color-brand-800: #0e4435;
-  --color-brand-900: #0a2e24;
+  /* Brand colors — mint + lime green */
+  --color-mint-50: #f0fdf4;
+  --color-mint-100: #dcfce7;
+  --color-mint-200: #bbf7d0;
+  --color-mint-300: #86efac;
+  --color-mint-400: #4ade80;
+  --color-mint-500: #22c55e;
+  --color-mint-600: #16a34a;
+  --color-mint-700: #15803d;
 
-  /* ---------- Ink (graphite) ---------- */
-  --color-ink-950: #0a0c0e;
-  --color-ink-900: #14171a;
-  --color-ink-800: #22262b;
-  --color-ink-700: #383e45;
-  --color-ink-600: #545c64;
-  --color-ink-500: #6e7781;
-  --color-ink-400: #9aa3ac;
-  --color-ink-300: #c4cbd2;
-  --color-ink-200: #dfe3e7;
-  --color-ink-100: #eef0f2;
+  --color-lime-50: #f7fee7;
+  --color-lime-100: #ecfccb;
+  --color-lime-200: #d9f99d;
+  --color-lime-300: #bef264;
+  --color-lime-400: #a3e635;
+  --color-lime-500: #84cc16;
 
-  /* ---------- Surfaces (warm paper) ---------- */
-  --color-canvas: #fbfaf8;
-  --color-canvas-soft: #f5f3f0;
+  /* Surfaces */
+  --color-canvas: #fafafa;
+  --color-canvas-soft: #f6f7f9;
   --color-surface: #ffffff;
-  --color-surface-soft: #faf9f7;
-  --color-surface-muted: #f2f0ec;
+  --color-surface-soft: #f9fafb;
+  --color-surface-muted: #f3f4f6;
 
-  /* ---------- Borders ---------- */
-  --color-border: #e5e2dc;
-  --color-border-soft: #efede9;
+  /* Graphite / ink */
+  --color-ink-900: #0b0f17;
+  --color-ink-800: #161b22;
+  --color-ink-700: #2d333b;
+  --color-ink-600: #444c56;
+  --color-ink-500: #6b7280;
+  --color-ink-400: #9ca3af;
+  --color-ink-300: #d1d5db;
+  --color-ink-200: #e5e7eb;
+  --color-ink-100: #f3f4f6;
 
-  /* ---------- Semantic ---------- */
-  --color-success: #12805c;
-  --color-success-soft: #e7f4ef;
-  --color-warning: #b54708;
-  --color-warning-soft: #fdf3e7;
-  --color-danger: #b42318;
-  --color-danger-soft: #fef3f2;
-  --color-info: #175cd3;
-  --color-info-soft: #eff4ff;
+  /* Borders */
+  --color-border: #e5e7eb;
+  --color-border-soft: #f0f0f2;
 
-  /* ---------- Radius (deliberate hierarchy, not all capsules) ---------- */
-  --radius-xs: 0.375rem;
+  /* Semantic */
+  --color-success: #16a34a;
+  --color-success-soft: #dcfce7;
+  --color-warning: #d97706;
+  --color-warning-soft: #fef3c7;
+  --color-danger: #dc2626;
+  --color-danger-soft: #fee2e2;
+  --color-info: #2563eb;
+  --color-info-soft: #dbeafe;
+
+  /* Radius */
   --radius-sm: 0.5rem;
-  --radius-md: 0.625rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
-  --radius-2xl: 1.25rem;
-  --radius-3xl: 1.75rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.5rem;
   --radius-full: 9999px;
 
-  /* ---------- Shadows (layered + warm-tinted, never pure black) ---------- */
-  --shadow-xs: 0 1px 2px rgba(20, 23, 26, 0.05);
-  --shadow-sm: 0 1px 3px rgba(20, 23, 26, 0.07), 0 1px 2px rgba(20, 23, 26, 0.04);
-  --shadow-md: 0 4px 10px -2px rgba(20, 23, 26, 0.08), 0 2px 4px -2px rgba(20, 23, 26, 0.05);
-  --shadow-lg: 0 16px 32px -12px rgba(20, 23, 26, 0.16), 0 4px 8px -4px rgba(20, 23, 26, 0.06);
-  --shadow-xl: 0 28px 60px -20px rgba(20, 23, 26, 0.24), 0 8px 16px -8px rgba(20, 23, 26, 0.08);
+  /* Shadows — subtle, premium */
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.04);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.04);
+  --shadow-md: 0 4px 12px -2px rgb(0 0 0 / 0.06), 0 2px 6px -2px rgb(0 0 0 / 0.04);
+  --shadow-lg: 0 12px 32px -8px rgb(0 0 0 / 0.10), 0 4px 12px -4px rgb(0 0 0 / 0.05);
+  --shadow-xl: 0 24px 48px -12px rgb(0 0 0 / 0.12);
 
-  /* ---------- Fonts ---------- */
-  --font-display: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  /* Fonts */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 
-  /* ---------- Easing ---------- */
+  /* Easing */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-/* ============================================================
-   Base
-   ============================================================ */
+/* Base */
 :root {
   --background: var(--color-canvas);
   --foreground: var(--color-ink-900);
@@ -92,8 +88,6 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
-  /* Anchor targets clear the sticky header. */
-  scroll-padding-top: 5rem;
 }
 
 body {
@@ -103,39 +97,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  font-feature-settings: "cv11", "ss01";
 }
 
-/* Headings use the display face with optical tightening. */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.font-display {
-  font-family: var(--font-display);
-  letter-spacing: -0.02em;
-  text-wrap: balance;
-}
-
-p {
-  text-wrap: pretty;
-}
-
-/* Money, counts and metrics must never jitter between renders. */
-.tnum,
-table td,
-table th {
-  font-variant-numeric: tabular-nums;
-}
-
-/* ============================================================
-   Chrome: scrollbar, selection, focus
-   ============================================================ */
+/* Custom scrollbar — premium feel */
 ::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
@@ -143,7 +110,7 @@ table th {
 ::-webkit-scrollbar-thumb {
   background: var(--color-ink-200);
   border-radius: var(--radius-full);
-  border: 3px solid transparent;
+  border: 2px solid transparent;
   background-clip: content-box;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -151,75 +118,43 @@ table th {
   background-clip: content-box;
 }
 
+/* Selection */
 ::selection {
-  background: var(--color-brand-200);
-  color: var(--color-brand-900);
+  background: var(--color-mint-200);
+  color: var(--color-ink-900);
 }
 
+/* Focus ring */
 :focus-visible {
-  outline: 2px solid var(--color-brand-500);
+  outline: 2px solid var(--color-mint-500);
   outline-offset: 2px;
   border-radius: var(--radius-sm);
 }
 
 /* ============================================================
-   Utilities
+   Gradients
    ============================================================ */
-
-/* Standard card surface — one treatment used consistently. */
-.surface-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border-soft);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-xs);
+.gradient-earn {
+  background: linear-gradient(135deg, #86efac 0%, #bef264 55%, #a3e635 100%);
 }
-
-/* Brand gradient, tuned down from the neon original. */
-.gradient-brand {
-  background: linear-gradient(135deg, var(--color-brand-500) 0%, var(--color-brand-700) 100%);
-}
-.gradient-brand-soft {
-  background: linear-gradient(135deg, var(--color-brand-50) 0%, #f4f8ee 100%);
+.gradient-earn-soft {
+  background: linear-gradient(135deg, #dcfce7 0%, #ecfccb 100%);
 }
 .gradient-text-brand {
-  background: linear-gradient(120deg, var(--color-brand-600) 0%, var(--color-brand-400) 100%);
+  background: linear-gradient(135deg, #16a34a 0%, #84cc16 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-/* Glass surface for sticky headers over content. */
+/* Glass surface */
 .glass {
-  background: rgba(251, 250, 248, 0.82);
+  background: rgba(255, 255, 255, 0.72);
   backdrop-filter: saturate(180%) blur(14px);
   -webkit-backdrop-filter: saturate(180%) blur(14px);
 }
 
-/* Faint engineering grid — adds crafted texture, barely perceptible. */
-.bg-grid {
-  background-image:
-    linear-gradient(to right, rgba(20, 23, 26, 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(20, 23, 26, 0.045) 1px, transparent 1px);
-  background-size: 56px 56px;
-}
-.bg-grid-invert {
-  background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 56px 56px;
-}
-
-/* Subtle noise — flattens gradient banding so large colour fields look printed. */
-.texture-noise::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.035;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-/* Safe-area helpers for the installable PWA. */
+/* Safe-area helpers for mobile PWA */
 .safe-top {
   padding-top: env(safe-area-inset-top);
 }
@@ -227,50 +162,57 @@ table th {
   padding-bottom: env(safe-area-inset-bottom);
 }
 
-/* Horizontal snap rail for mobile card carousels. */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-/* ============================================================
-   Motion — short, purposeful, never decorative
-   ============================================================ */
+/* Utility animations */
 @keyframes fade-in {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 @keyframes fade-in-up {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
 }
 @keyframes scale-in {
-  from { opacity: 0; transform: scale(0.97); }
+  from { opacity: 0; transform: scale(0.96); }
   to { opacity: 1; transform: scale(1); }
 }
 @keyframes shimmer {
   100% { transform: translateX(100%); }
 }
 
-.animate-fade-in { animation: fade-in 0.3s var(--ease-out) both; }
-.animate-fade-in-up { animation: fade-in-up 0.4s var(--ease-out) both; }
-.animate-scale-in { animation: scale-in 0.22s var(--ease-out) both; }
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
+/* Logo sheen — a diagonal light sweep that crosses the mark periodically. */
+@keyframes logo-sheen {
+  0% { transform: translateX(-130%) skewX(-18deg); opacity: 0; }
+  18% { opacity: 0.9; }
+  38% { transform: translateX(230%) skewX(-18deg); opacity: 0; }
+  100% { transform: translateX(230%) skewX(-18deg); opacity: 0; }
 }
+.logo-sheen {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.logo-sheen::after {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: 0;
+  width: 45%;
+  height: 160%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent
+  );
+  transform: translateX(-130%) skewX(-18deg);
+  animation: logo-sheen 5.5s ease-in-out infinite;
+}
+
+.animate-fade-in { animation: fade-in 0.4s var(--ease-out) both; }
+.animate-fade-in-up { animation: fade-in-up 0.5s var(--ease-out) both; }
+.animate-scale-in { animation: scale-in 0.3s var(--ease-out) both; }
 
 /* Skeleton shimmer */
 .skeleton {
@@ -283,6 +225,6 @@ table th {
   position: absolute;
   inset: 0;
   transform: translateX(-100%);
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.65), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
   animation: shimmer 1.6s infinite;
 }

@@ -4,29 +4,29 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-semibold transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-canvas disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mint-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 active:scale-[0.98]",
   {
     variants: {
       variant: {
         default:
-          "bg-brand-600 text-white shadow-xs hover:bg-brand-700 hover:shadow-sm",
+          "bg-ink-900 text-white hover:bg-ink-800 shadow-sm hover:shadow-md",
         primary:
-          "bg-brand-600 text-white shadow-xs hover:bg-brand-700 hover:shadow-sm",
+          "bg-ink-900 text-white hover:bg-ink-800 shadow-sm hover:shadow-md",
         secondary:
-          "border border-border bg-surface text-ink-900 shadow-xs hover:bg-surface-muted",
+          "bg-surface text-ink-900 border border-border hover:bg-surface-muted",
         outline:
-          "border border-border bg-transparent text-ink-900 hover:bg-surface-soft",
-        ghost: "text-ink-700 hover:bg-surface-muted hover:text-ink-900",
+          "border border-border bg-transparent hover:bg-surface-soft text-ink-900",
+        ghost: "hover:bg-surface-muted text-ink-700",
         success:
-          "bg-brand-600 text-white shadow-xs hover:bg-brand-700",
+          "bg-mint-600 text-white hover:bg-mint-700 shadow-sm",
         danger:
-          "bg-danger text-white shadow-xs hover:bg-danger/90",
-        link: "h-auto p-0 text-ink-900 underline-offset-4 hover:underline",
+          "bg-danger text-white hover:opacity-90 shadow-sm",
+        link: "text-ink-900 underline-offset-4 hover:underline h-auto p-0",
       },
       size: {
-        default: "h-11 px-5",
+        default: "h-11 px-6",
         sm: "h-9 px-4 text-xs",
-        lg: "h-13 px-7 text-base",
+        lg: "h-13 px-8 text-base",
         icon: "h-10 w-10",
       },
     },

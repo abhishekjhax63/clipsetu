@@ -104,7 +104,7 @@ async function SettingsPanel() {
           >
             <span className="flex items-center gap-3">
               <span
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-100 text-brand-700"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-mint-100 text-mint-700"
                 aria-hidden="true"
               >
                 <Bell className="h-4 w-4" />

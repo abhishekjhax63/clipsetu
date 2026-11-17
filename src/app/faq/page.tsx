@@ -52,53 +52,37 @@ export default function FAQPage() {
         </p>
       </section>
 
-      <section className="mx-auto max-w-3xl px-4 pb-20 sm:px-6 lg:px-8">
-        <div className="space-y-3">
+      <section className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 pb-20">
+        <div className="space-y-4">
           {faqs.map((faq, i) => (
             <details
               key={i}
-              className="group rounded-2xl border border-border-soft bg-surface p-5 shadow-xs transition-colors open:border-brand-200"
+              className="group rounded-2xl border border-border-soft bg-surface p-5 shadow-sm open:shadow-md"
             >
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4">
                 <span className="font-semibold text-ink-900">{faq.q}</span>
-                <span
-                  aria-hidden="true"
-                  className="select-none text-xl leading-none text-ink-400 transition-transform group-open:rotate-45"
-                >
+                <span className="text-ink-400 transition-transform group-open:rotate-45 text-xl">
                   +
                 </span>
               </summary>
-              <p className="mt-3 text-sm leading-relaxed text-ink-600">
+              <p className="mt-3 text-sm text-ink-600 leading-relaxed">
                 {faq.a}
               </p>
             </details>
           ))}
         </div>
 
-        <div className="relative mt-12 overflow-hidden rounded-3xl bg-ink-900 p-8 text-center">
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -top-24 left-1/2 h-64 w-[36rem] -translate-x-1/2 rounded-full bg-brand-500/25 blur-3xl"
-          />
-          <div className="relative">
-            <h2 className="text-xl font-bold text-white">
-              Still have questions?
-            </h2>
-            <p className="mt-2 text-ink-300">
-              Our support team is here to help.
-            </p>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="mt-5 border-white/20 bg-transparent text-white hover:bg-white/10 hover:text-white"
-            >
-              <Link href="/contact">
-                Contact support
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
-            </Button>
-          </div>
+        <div className="mt-12 rounded-3xl bg-ink-900 p-8 text-center">
+          <h2 className="text-xl font-bold text-white">Still have questions?</h2>
+          <p className="mt-2 text-ink-300">
+            Our support team is here to help.
+          </p>
+          <Button asChild variant="outline" size="lg" className="mt-5 border-white/20 text-white hover:bg-white/10">
+            <Link href="/contact">
+              Contact support
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Button>
         </div>
       </section>
     </PublicLayout>

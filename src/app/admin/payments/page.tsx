@@ -215,7 +215,7 @@ async function PaymentsInner({ searchParams }: { searchParams: SearchParams }) {
                 id="type"
                 name="type"
                 defaultValue={typeFilter}
-                className="flex h-11 w-48 rounded-lg border border-border bg-surface px-3 text-sm text-ink-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/25"
+                className="flex h-11 w-48 rounded-xl border border-border bg-surface px-3 text-sm text-ink-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mint-500"
               >
                 <option value="">All types</option>
                 {TXN_TYPES.map((t) => (
@@ -231,7 +231,7 @@ async function PaymentsInner({ searchParams }: { searchParams: SearchParams }) {
                 id="status"
                 name="status"
                 defaultValue={statusFilter}
-                className="flex h-11 w-44 rounded-lg border border-border bg-surface px-3 text-sm text-ink-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/25"
+                className="flex h-11 w-44 rounded-xl border border-border bg-surface px-3 text-sm text-ink-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mint-500"
               >
                 <option value="">All statuses</option>
                 {TXN_STATUSES.map((s) => (

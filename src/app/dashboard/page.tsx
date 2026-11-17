@@ -323,7 +323,7 @@ async function BrandOverview({ userId }: { userId: string }) {
         </CardContent>
       </Card>
 
-      <Card className="border-brand-100 bg-brand-50">
+      <Card className="border-mint-200 bg-gradient-earn-soft">
         <CardContent className="flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="font-semibold text-ink-900">
@@ -481,7 +481,7 @@ async function ClipperOverview({ userId }: { userId: string }) {
         </CardContent>
       </Card>
 
-      <Card className="border-brand-100 bg-brand-50">
+      <Card className="border-mint-200 bg-gradient-earn-soft">
         <CardContent className="flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="font-semibold text-ink-900">

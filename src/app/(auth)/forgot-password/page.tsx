@@ -26,9 +26,9 @@ export default function ForgotPasswordPage() {
   // Show a success state instead of the form once the email is sent
   if (state?.success) {
     return (
-      <div className="rounded-2xl border border-border-soft bg-surface p-6 text-center shadow-sm sm:p-8">
-        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-brand-50">
-          <Mail className="h-6 w-6 text-brand-600" aria-hidden="true" />
+      <div className="rounded-2xl border border-border-soft bg-surface p-8 shadow-sm text-center">
+        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-mint-100">
+          <Mail className="h-6 w-6 text-mint-600" />
         </div>
         <h1 className="mt-4 text-2xl font-bold text-ink-900">Check your email</h1>
         <p className="mt-2 text-sm text-ink-500">
@@ -37,16 +37,16 @@ export default function ForgotPasswordPage() {
         </p>
         <Link
           href="/login"
-          className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-brand-600 hover:underline"
+          className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-mint-600 hover:underline"
         >
-          <ArrowLeft className="h-4 w-4" aria-hidden="true" /> Back to login
+          <ArrowLeft className="h-4 w-4" /> Back to login
         </Link>
       </div>
     );
   }
 
   return (
-    <div className="rounded-2xl border border-border-soft bg-surface p-6 shadow-sm sm:p-8">
+    <div className="rounded-2xl border border-border-soft bg-surface p-8 shadow-sm">
       <h1 className="text-2xl font-bold text-ink-900">Forgot password?</h1>
       <p className="mt-1 text-sm text-ink-500">
         Enter your email and we&apos;ll send you a reset link.
@@ -76,7 +76,7 @@ export default function ForgotPasswordPage() {
         Remember your password?{" "}
         <Link
           href="/login"
-          className="font-medium text-brand-600 hover:underline"
+          className="font-medium text-mint-600 hover:underline"
         >
           Log in
         </Link>

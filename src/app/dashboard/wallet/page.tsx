@@ -180,7 +180,7 @@ function TxnList({ txns }: { txns: TxnRow[] }) {
               <span
                 className={
                   credit
-                    ? "text-sm font-semibold tabular-nums text-brand-700"
+                    ? "text-sm font-semibold tabular-nums text-mint-700"
                     : "text-sm font-semibold tabular-nums text-ink-900"
                 }
               >
