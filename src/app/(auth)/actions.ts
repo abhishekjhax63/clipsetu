@@ -263,14 +263,16 @@ const emailOtpSchema = z.object({
 
 const emailOtpVerifySchema = z.object({
   email: z.string().email("Please enter a valid email"),
+  // Supabase OTP length is configurable (mailer_otp_length, 6–10 digits), so
+  // accept the full range instead of hard-coding 6.
   token: z
     .string()
     .trim()
-    .regex(/^\d{6}$/, "Enter the 6-digit code from your email"),
+    .regex(/^\d{6,10}$/, "Enter the code from your email"),
 });
 
 /**
- * Send a one-time 6-digit code to `email`. Creates the account if it does not
+ * Send a one-time numeric code to `email`. Creates the account if it does not
  * exist yet (`shouldCreateUser`), so the same flow covers sign-in and sign-up.
  */
 export async function sendEmailOtp(
@@ -315,7 +317,7 @@ export async function sendEmailOtp(
 
     return {
       success: true,
-      message: `We emailed a 6-digit code to ${email}.`,
+      message: `We emailed a sign-in code to ${email}.`,
     };
   } catch (err) {
     console.error("Send email OTP error:", err);
@@ -324,7 +326,7 @@ export async function sendEmailOtp(
 }
 
 /**
- * Verify the 6-digit code and start a session.
+ * Verify the numeric one-time code and start a session.
  * NOTE: keep redirect() OUTSIDE the try/catch — it throws NEXT_REDIRECT.
  */
 export async function verifyEmailOtp(

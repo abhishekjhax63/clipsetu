@@ -9,7 +9,7 @@ import {
   animate,
   type MotionValue,
 } from "framer-motion";
-import { Scissors } from "lucide-react";
+import Image from "next/image";
 import { OrbitVideoCard, type OrbitVideo } from "./orbit-video-card";
 import { useMediaQuery, usePrefersReducedMotion } from "./hooks";
 
@@ -103,8 +103,14 @@ function CentralElement() {
       {/* Brand disc */}
       <div className="relative flex h-[73%] w-[73%] flex-col items-center justify-center rounded-full bg-ink-900 shadow-2xl shadow-mint-500/20">
         <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_35%_30%,rgba(74,222,128,0.35),transparent_55%)]" />
-        <div className="relative flex items-center gap-1.5">
-          <Scissors className="h-5 w-5 text-mint-400" />
+        <div className="relative flex items-center gap-2">
+          <Image
+            src="/brand/clipsetu-mark.png"
+            alt=""
+            width={36}
+            height={36}
+            className="h-9 w-9 object-contain"
+          />
           <span className="text-lg font-black tracking-tight text-white sm:text-xl">
             Clip<span className="text-mint-400">Setu</span>
           </span>

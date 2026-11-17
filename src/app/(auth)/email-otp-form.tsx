@@ -19,7 +19,7 @@ interface EmailOtpFormProps {
 }
 
 /**
- * Passwordless email OTP: send a 6-digit code, then verify it.
+ * Passwordless email OTP: send a numeric one-time code, then verify it.
  * Both steps are Supabase server actions (signInWithOtp / verifyOtp).
  */
 export function EmailOtpForm({ variant = "signin" }: EmailOtpFormProps) {
@@ -124,7 +124,7 @@ export function EmailOtpForm({ variant = "signin" }: EmailOtpFormProps) {
         </Button>
 
         <p className="text-center text-xs text-ink-400">
-          We&apos;ll email you a 6-digit code. No password needed.
+          We&apos;ll email you a one-time code. No password needed.
         </p>
       </form>
     );
@@ -135,7 +135,7 @@ export function EmailOtpForm({ variant = "signin" }: EmailOtpFormProps) {
       <div className="flex items-start gap-3 rounded-xl bg-surface-muted p-3">
         <MailCheck className="mt-0.5 h-4 w-4 shrink-0 text-mint-600" />
         <p className="text-xs text-ink-500">
-          Enter the 6-digit code sent to{" "}
+          Enter the code sent to{" "}
           <span className="font-medium text-ink-900">{email}</span>.
         </p>
       </div>
@@ -150,10 +150,10 @@ export function EmailOtpForm({ variant = "signin" }: EmailOtpFormProps) {
             name="token"
             inputMode="numeric"
             autoComplete="one-time-code"
-            pattern="\d{6}"
-            maxLength={6}
-            placeholder="123456"
-            className="text-center text-lg tracking-[0.4em]"
+            pattern="\d{6,10}"
+            maxLength={10}
+            placeholder="Enter code"
+            className="text-center text-lg tracking-[0.3em]"
             required
           />
           {verifyState?.errors?.token && (

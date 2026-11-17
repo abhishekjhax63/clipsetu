@@ -1,18 +1,9 @@
 "use client";
 
-import * as React from "react";
 import { useSyncExternalStore } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import {
-  motion,
-  useMotionValue,
-  useSpring,
-  useTransform,
-  type MotionValue,
-} from "framer-motion";
-import { useMediaQuery, usePrefersReducedMotion } from "./hooks";
-
-const WORD = "ClipSetu";
+import { motion } from "framer-motion";
 
 const footerLinks = {
   Platform: [
@@ -39,104 +30,6 @@ const footerLinks = {
   ],
 };
 
-function MagneticLetter({
-  ch,
-  index,
-  total,
-  smx,
-  smy,
-  strength,
-  interactive,
-}: {
-  ch: string;
-  index: number;
-  total: number;
-  smx: MotionValue<number>;
-  smy: MotionValue<number>;
-  strength: number;
-  interactive: boolean;
-}) {
-  const center = (index + 0.5) / total;
-  const dx = useTransform(smx, (x) => (x - center) * strength);
-  const dy = useTransform(smy, (y) => (y - 0.5) * strength);
-
-  return (
-    <motion.span
-      style={interactive ? { x: dx, y: dy } : undefined}
-      className="inline-block bg-gradient-to-b from-white via-white to-white/40 bg-clip-text text-transparent"
-    >
-      {ch}
-    </motion.span>
-  );
-}
-
-function MagneticWordmark() {
-  const reduced = usePrefersReducedMotion();
-  const isFine = useMediaQuery("(pointer: fine)");
-  const interactive = isFine && !reduced;
-
-  const ref = React.useRef<HTMLDivElement>(null);
-  const mx = useMotionValue(0.5);
-  const my = useMotionValue(0.5);
-  const smx = useSpring(mx, { stiffness: 120, damping: 20 });
-  const smy = useSpring(my, { stiffness: 120, damping: 20 });
-
-  const onMove = (e: React.MouseEvent) => {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    mx.set((e.clientX - rect.left) / rect.width);
-    my.set((e.clientY - rect.top) / rect.height);
-  };
-
-  const letters = WORD.split("");
-  const strength = 14; // px max displacement
-
-  // Always compute the gradient transform (hooks rule); apply only when interactive.
-  const gradientBg = useTransform(
-    [smx, smy],
-    ([x, y]: number[]) =>
-      `radial-gradient(400px circle at ${x * 100}% ${y * 100}%, rgba(134,239,172,0.28), rgba(163,230,53,0.08) 40%, transparent 70%)`
-  );
-
-  return (
-    <motion.div
-      ref={ref}
-      onMouseMove={onMove}
-      onMouseLeave={() => {
-        mx.set(0.5);
-        my.set(0.5);
-      }}
-      className="relative select-none overflow-hidden text-center"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-15% 0px" }}
-      transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-    >
-      {/* Gradient light following cursor */}
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-70"
-        style={interactive ? { background: gradientBg } : undefined}
-      />
-
-      <h2 className="relative text-[18vw] font-black leading-[0.85] tracking-tighter sm:text-[16vw] lg:text-[14rem]">
-        {letters.map((ch, i) => (
-          <MagneticLetter
-            key={`${ch}-${i}`}
-            ch={ch}
-            index={i}
-            total={letters.length}
-            smx={smx}
-            smy={smy}
-            strength={strength}
-            interactive={interactive}
-          />
-        ))}
-      </h2>
-    </motion.div>
-  );
-}
-
 const noopSubscribe = () => () => {};
 
 /**
@@ -156,23 +49,44 @@ export function InteractiveFooter() {
 
   return (
     <footer className="relative overflow-hidden bg-ink-900 text-white">
-      {/* Top wordmark band */}
+      {/* Brand band */}
       <div className="border-b border-white/10 px-4 py-16 sm:py-20">
-        <MagneticWordmark />
-        <p className="mx-auto mt-6 max-w-xl text-center text-sm text-ink-400">
-          Create. Clip. Publish. Earn. — India&apos;s creator-powered clipping
-          marketplace.
-        </p>
+        <motion.div
+          className="mx-auto flex max-w-3xl flex-col items-center text-center"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-15% 0px" }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <Image
+            src="/brand/clipsetu-mark.png"
+            alt="ClipSetu"
+            width={80}
+            height={80}
+            className="h-16 w-16 object-contain sm:h-20 sm:w-20"
+          />
+          <h2 className="mt-6 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+            Clip<span className="text-mint-400">Setu</span>
+          </h2>
+          <p className="mt-4 max-w-xl text-sm text-ink-400 sm:text-base">
+            Create. Clip. Publish. Earn. — India&apos;s creator-powered clipping
+            marketplace.
+          </p>
+        </motion.div>
       </div>
 
       {/* Links */}
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
           <div className="col-span-2">
-            <div className="flex items-center gap-2">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10">
-                <span className="text-lg">✂</span>
-              </span>
+            <div className="flex items-center gap-2.5">
+              <Image
+                src="/brand/clipsetu-mark.png"
+                alt=""
+                width={40}
+                height={40}
+                className="h-10 w-10 object-contain"
+              />
               <span className="text-xl font-bold tracking-tight">
                 Clip<span className="text-mint-400">Setu</span>
               </span>

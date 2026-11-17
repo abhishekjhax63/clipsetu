@@ -1,15 +1,23 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Scissors } from "lucide-react";
 import { PUBLIC_NAV } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 
 export function Logo({ className = "" }: { className?: string }) {
   return (
-    <Link href="/" className={`flex items-center gap-2 ${className}`}>
-      <span className="relative flex h-9 w-9 items-center justify-center overflow-hidden rounded-xl bg-ink-900">
-        <Scissors className="h-5 w-5 text-mint-400" />
-        <span className="logo-sheen" aria-hidden />
-      </span>
+    <Link
+      href="/"
+      aria-label="ClipSetu home"
+      className={`group flex items-center gap-2.5 ${className}`}
+    >
+      <Image
+        src="/brand/clipsetu-mark.png"
+        alt=""
+        width={40}
+        height={40}
+        priority
+        className="h-10 w-10 object-contain transition-transform duration-300 group-hover:scale-105"
+      />
       <span className="text-xl font-bold tracking-tight text-ink-900">
         Clip<span className="text-mint-600">Setu</span>
       </span>
